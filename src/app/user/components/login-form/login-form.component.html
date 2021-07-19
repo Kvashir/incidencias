@@ -1,5 +1,5 @@
 <div>
-  <form [formGroup]="formGroup" (ngSubmit)="submit()">
+  <ion-card [formGroup]="formGroup" (ngSubmit)="submit()">
 
     <ion-item>
       <ion-label><ion-icon name="mail-outline"></ion-icon></ion-label>
@@ -9,10 +9,10 @@
       <ion-label><ion-icon name="key-outline"></ion-icon></ion-label>
       <ion-input type="password" placeholder="........."></ion-input>
     </ion-item>
-    <ion-button type="submit"><ion-icon name="log-in-outline"></ion-icon>Login</ion-button>
+    <ion-button (click)="submit()"><ion-icon name="log-in-outline"></ion-icon>Login</ion-button>
     <ion-text color="secondary">
       <ion-button color="warning" type="button" routerLink="/register"><ion-icon name="person-add-outline"></ion-icon>Registrate</ion-button>
     </ion-text>
 
-  </form>
+  </ion-card>
 </div>

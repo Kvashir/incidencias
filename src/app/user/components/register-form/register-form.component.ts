@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 @Component({
@@ -8,7 +8,9 @@ import { FormGroup } from '@angular/forms';
 })
 export class RegisterFormComponent implements OnInit {
 
-  formGroup!:FormGroup;
+  @Input() formGroup!:FormGroup;
+
+  @Output() submitEvent = new EventEmitter();
 
   constructor() { }
 
@@ -16,6 +18,8 @@ export class RegisterFormComponent implements OnInit {
   }
 
   submit(){
-
+    console.log("submit")
+    this.submitEvent.emit(this.formGroup.value);
+    this.formGroup.reset(); 
   }
 }

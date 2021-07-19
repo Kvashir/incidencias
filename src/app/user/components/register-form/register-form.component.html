@@ -1,35 +1,35 @@
 <div> 
-  <form [formGroup]="formGroup" (ngSubmit)="submit()">
+  <ion-card [formGroup]="formGroup" (ngSubmit)="submit()">
 
     <ion-item>
       <ion-label>Nombre: </ion-label>
-      <ion-input placeholder="........."></ion-input>
+      <ion-input placeholder="........." formControlName='name'></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Apellidos: </ion-label>
-      <ion-input placeholder="........."></ion-input>
+      <ion-input placeholder="........." formControlName='surname'></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>E-mail: </ion-label>
-      <ion-input placeholder="........."></ion-input>
+      <ion-input placeholder="........." formControlName='email'></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Contraseña: <ion-icon name="key-outline"></ion-icon></ion-label>
-      <ion-input type="password" placeholder="........."></ion-input>
+      <ion-input type="password" placeholder="........." formControlName='password'></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Confirmar contraseña: <ion-icon name="key-outline"></ion-icon></ion-label>
-      <ion-input type="password" placeholder="........."></ion-input>
+      <ion-input type="password" placeholder="........." formControlName='confirmPassword'></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Tlf: </ion-label>
-      <ion-input placeholder="........."></ion-input>
+      <ion-input placeholder="........." formControlName='tlf'></ion-input>
     </ion-item>
-    <ion-button type="submit" color="primary"><ion-icon name="thumbs-up-outline" ></ion-icon> Resgistrar</ion-button>
+    <ion-button color="primary" (click)='submit()'><ion-icon name="thumbs-up-outline" ></ion-icon> Resgistrar</ion-button>
     <ion-text color="secondary">
       <ion-button type="button" routerLink="/login" color="danger"><ion-icon name="alert-circle-outline"></ion-icon> Cancelar</ion-button>
     </ion-text>
 
-  </form>
+  </ion-card>
 </div>
 

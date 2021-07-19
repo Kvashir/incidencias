@@ -8,14 +8,18 @@ import { FormGroup } from '@angular/forms';
 })
 export class LoginFormComponent implements OnInit {
 
-  formGroup!:FormGroup;
+  @Input() formGroup!: FormGroup;
+  @Input() error!:string;
+
   
+  @Output() submitEvent = new EventEmitter();
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
   submit(){
-
+    this.submitEvent.emit(this.formGroup.value);
   }
 }
