@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "gestor-incidencias-mug": {
+      "hosting": {
+        "incidencias": [
+          "gestor-incidencias-mug"
+        ]
+      }
+    }
+  }
+}
