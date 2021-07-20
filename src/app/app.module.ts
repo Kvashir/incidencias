@@ -9,7 +9,6 @@ import { AppComponent } from './app.component';
 import { environment } from 'src/environments/environment';
 import { UserModule } from './user/user.module';
 import { IonicModule } from '@ionic/angular';
-import { ClienteModule } from './cliente/cliente.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +17,6 @@ import { ClienteModule } from './cliente/cliente.module';
   imports: [
     IonicModule,
     UserModule,
-    ClienteModule,
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
