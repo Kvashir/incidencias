@@ -4,7 +4,7 @@ import { ClientRoutingModule } from './cliente-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ClienteComponent } from './pages/cliente.component';
 import { ClienteFormComponent } from './components/cliente-form/cliente-form.component';
-
+import { IonicModule } from '@ionic/angular'; 
 
 
 
@@ -16,7 +16,8 @@ import { ClienteFormComponent } from './components/cliente-form/cliente-form.com
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    ClientRoutingModule
+    ClientRoutingModule,
+    IonicModule
   ]
 })
 export class ClienteModule { }
