@@ -1,4 +1,4 @@
-<div> 
+<div>
   <ion-card [formGroup]="formGroup" (ngSubmit)="submit()">
 
     <ion-item>
@@ -24,6 +24,10 @@
     <ion-item>
       <ion-label>Tlf: </ion-label>
       <ion-input placeholder="........." formControlName='tlf'></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Rol: {{rol}}</ion-label>
+      <ion-toggle enable checked="false" (click)="changeRol()"></ion-toggle>
     </ion-item>
     <ion-button color="primary" (click)='submit()'><ion-icon name="thumbs-up-outline" ></ion-icon> Resgistrar</ion-button>
     <ion-text color="secondary">

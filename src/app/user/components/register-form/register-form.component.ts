@@ -7,7 +7,8 @@ import { FormGroup } from '@angular/forms';
   styleUrls: ['./register-form.component.scss']
 })
 export class RegisterFormComponent implements OnInit {
-
+  rolbool:boolean = false;
+  rol:string="Cliente";
   @Input() formGroup!:FormGroup;
 
   @Output() submitEvent = new EventEmitter();
@@ -18,8 +19,19 @@ export class RegisterFormComponent implements OnInit {
   }
 
   submit(){
-    console.log("submit")
+    this.formGroup.value.rol = this.rol;
     this.submitEvent.emit(this.formGroup.value);
-    this.formGroup.reset(); 
+    this.formGroup.reset();
+  }
+
+  changeRol(){
+    this.rolbool=!this.rolbool;
+
+    if(this.rolbool){
+      this.rol ="Técnico";
+    }
+    else{
+      this.rol ="Cliente";
+    }
   }
 }

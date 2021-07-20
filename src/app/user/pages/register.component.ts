@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators, AbstractControl, ValidatorFn, Valid
 import { Router } from '@angular/router';
 import { User } from 'src/app/shared/model/user';
 import { AuthService } from 'src/app/shared/services/auth.service';
+import { ClientService } from 'src/app/shared/services/client.service';
 
 @Component({
   selector: 'app-register',
@@ -12,11 +13,11 @@ import { AuthService } from 'src/app/shared/services/auth.service';
             </app-register-form>`
 })
 export class RegisterComponent implements OnInit {
-  
+
   user!:User;
   formGroup!:FormGroup;
 
-  constructor(private fb:FormBuilder, private auth: AuthService, private router: Router) {
+  constructor(private fb:FormBuilder, private auth: AuthService, private router: Router, private clientService:ClientService) {
 
     this.user=new User();
 
@@ -37,7 +38,7 @@ export class RegisterComponent implements OnInit {
 
 async registrarUsuario(user:User){
     await this.auth.registrarUsuario$(user);
-
+    this.clientService.setPerfilByUserID(user);
     this.router.navigate(['/login']);
   }
 
