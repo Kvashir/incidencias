@@ -8,7 +8,7 @@ import { RegisterComponent } from './user/pages/register.component';
 const routes: Routes = [
 
   {path:"login",component:LoginComponent},
-  {path:"", redirectTo:"tec", pathMatch:"full"},
+  {path:"", redirectTo:"login", pathMatch:"full"},
   {path:"register", component:RegisterComponent},
   {path:"client",
   loadChildren: ()=> import('./cliente/cliente.module').then(m => m.ClienteModule),

@@ -6,6 +6,6 @@ export class Client {
   password:string='';
   confirmPassword?:string='';
   tlf?:string='';
-  rol:string='cliente';
+  rol:string='Cliente';
   
 }

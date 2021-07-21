@@ -16,7 +16,7 @@
     </ion-card-header>
     <ion-card-content>
         {{i.descripcion}} <br>
-        <img src="{{i.fotoIncidencia}} | safePipe" alt="">
+        <img src="{{foto}}" alt="">
     </ion-card-content>
 </ion-card>
 <ion-button *ngIf="!esClient" color=primary (click)=assignar()>Assignar</ion-button>

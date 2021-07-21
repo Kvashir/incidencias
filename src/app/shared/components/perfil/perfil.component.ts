@@ -23,7 +23,7 @@ export class PerfilComponent implements OnInit {
 
   }
   volver(){
-    if(this.user.rol=="cliente"){
+    if(this.user.rol=="Cliente"){
       this.router.navigate(['/client/']);
     }
     else{
