@@ -1,7 +1,7 @@
 <ion-content>
     <ion-list>
 
-        <ion-card *ngFor="let i of incidencias">
+        <ion-card *ngFor="let i of incidencias" (click)="abrirIncidencia(i.id)">
             <ion-label>
                 {{i.estadoincidencia}}
             </ion-label>

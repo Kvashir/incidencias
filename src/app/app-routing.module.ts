@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { IncidenciaComponent } from './shared/components/incidencia/incidencia.component';
 import { LoginComponent } from './user/pages/login.component';
 import { RegisterComponent } from './user/pages/register.component';
 
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path:"tec",
   loadChildren: ()=> import('./tecnico/tecnico.module').then(m => m.TecnicoModule),
   },
+  {path:"incidencia/:id", component:IncidenciaComponent}
 ];
 
 @NgModule({

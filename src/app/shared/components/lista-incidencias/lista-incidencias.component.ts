@@ -1,5 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output,EventEmitter } from '@angular/core';
 import { Incidencia } from '../../model/incidencia';
+import { IncidenciaService } from '../../services/incidencia.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-lista-incidencias',
@@ -8,28 +10,22 @@ import { Incidencia } from '../../model/incidencia';
 })
 
 export class ListaIncidenciasComponent implements OnInit {
-
-  // incidencias:Array<Incidencia>=[
-  //   {titulo:"titulo",descripcion:"descripcion",fechaCreacion:"fecha",estadoincidencia:"estado",tecnicoId:"tecnico"},
-  //   {titulo:"titulo",descripcion:"descripcion",fechaCreacion:"fecha",estadoincidencia:"estado",tecnicoId:"tecnico"},
-  //   {titulo:"titulo",descripcion:"descripcion",fechaCreacion:"fecha",estadoincidencia:"estado",tecnicoId:"tecnico"},
-  //   {titulo:"titulo",descripcion:"descripcion",fechaCreacion:"fecha",estadoincidencia:"estado",tecnicoId:"tecnico"},
-  //   {titulo:"titulo",descripcion:"descripcion",fechaCreacion:"fecha",estadoincidencia:"estado",tecnicoId:"tecnico"},
-  //   {titulo:"titulo",descripcion:"descripcion",fechaCreacion:"fecha",estadoincidencia:"estado",tecnicoId:"tecnico"},
-  //   {titulo:"titulo",descripcion:"descripcion",fechaCreacion:"fecha",estadoincidencia:"estado",tecnicoId:"tecnico"},
-  //   {titulo:"titulo",descripcion:"descripcion",fechaCreacion:"fecha",estadoincidencia:"estado",tecnicoId:"tecnico"},
-  //   {titulo:"titulo",descripcion:"descripcion",fechaCreacion:"fecha",estadoincidencia:"estado",tecnicoId:"tecnico"},
-  //   {titulo:"titulo",descripcion:"descripcion",fechaCreacion:"fecha",estadoincidencia:"estado",tecnicoId:"tecnico"},
-  //   {titulo:"titulo",descripcion:"descripcion",fechaCreacion:"fecha",estadoincidencia:"estado",tecnicoId:"tecnico"},
-  //   {titulo:"titulo",descripcion:"descripcion",fechaCreacion:"fecha",estadoincidencia:"estado",tecnicoId:"tecnico"},
-  //   {titulo:"titulo",descripcion:"descripcion",fechaCreacion:"fecha",estadoincidencia:"estado",tecnicoId:"tecnico"}
-  // ];
-
+  id:string="";
   @Input() incidencias!:Array<Incidencia>;
-  
-  constructor() { }
+
+  @Output() incidenciaEvent = new EventEmitter<string>();
+
+  constructor(private iservice:IncidenciaService,private router: Router) { }
 
   ngOnInit(): void {
-  }
 
+  }
+  abrirIncidencia(id:string = "0"){
+    this.id =id;
+     console.log(this.id);
+    this.incidenciaEvent.emit(this.id);
+    
+    this.router.navigate(['/incidencia/',id]);
+    //this.iservice.getIncidenciaById(id).subscribe(data => console.log(data));
+  }
 }

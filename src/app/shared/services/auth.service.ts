@@ -29,6 +29,7 @@ export class AuthService {
   }
 
   login(user:User):Promise<any>{
+    sessionStorage.clear();
     return this.fireAuth.signInWithEmailAndPassword(user.email,user.password);
   }
 

@@ -3,10 +3,12 @@
         {{i.estadoincidencia}}
     </ion-label>
     <ion-label>
-        Cliente: {{cliente}}
+        Cliente: 
+        {{cliente[0].name}} {{cliente[0].surname}}
     </ion-label>
     <ion-label>
-        Tecnico: {{tecnico}}
+        Tecnico:
+        {{tecnico[0].name}} {{tecnico[0].surname}}
     </ion-label>    
     <ion-card-header>
         <ion-card-title>{{i.titulo}}</ion-card-title>
@@ -14,10 +16,10 @@
     </ion-card-header>
     <ion-card-content>
         {{i.descripcion}} <br>
-        {{i.fotoIncidencia}}
+        <img src="{{i.fotoIncidencia}}" alt="">
     </ion-card-content>
 </ion-card>
-
+<ion-button color=danger (click)=deleteIncidencia()>Eliminar</ion-button>
 <ion-card *ngFor="let a of i.feedback">
     <ion-card-header>
         <ion-card-title>{{i.titulo}}</ion-card-title>
@@ -26,6 +28,8 @@
     <ion-card-content>
         {{i.descripcion}} 
         <br>
-        {{i.fotoIncidencia}}
+        
+         {{i.fotoIncidencia}}  
     </ion-card-content>
+    
 </ion-card>

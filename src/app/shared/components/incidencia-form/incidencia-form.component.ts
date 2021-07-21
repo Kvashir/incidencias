@@ -9,8 +9,8 @@ import { Camera, CameraResultType, CameraSource, Photo } from '@capacitor/camera
 import { Filesystem, Directory } from '@capacitor/filesystem';
 import { Storage } from '@capacitor/storage';
 import { defineCustomElements } from '@ionic/pwa-elements/loader';
-import { PhotoService } from '../../services/photo.service';
-
+import { PhotoService } from '../../services/photo.service';  
+import { Foto } from '../../model/photo';
 
 @Component({
   selector: 'app-incidencia-form',
@@ -20,10 +20,11 @@ import { PhotoService } from '../../services/photo.service';
 export class IncidenciaFormComponent implements OnInit {
   formGroup!:FormGroup;
   incidencia!:Incidencia;
-
-
+  photo:Foto=new Foto;
+  foto:string="https://developers.google.com/maps/documentation/streetview/images/error-image-generic.png";
   constructor(public photoService:PhotoService, private fb:FormBuilder, private incidenciaService:IncidenciaService,private router:Router, private auth:AuthService) {
     this.incidencia = new Incidencia();
+    defineCustomElements(window);
   }
 
   ngOnInit(): void {
@@ -51,9 +52,11 @@ export class IncidenciaFormComponent implements OnInit {
     this.incidencia = this.formGroup.value;
     this.incidencia.fechaCreacion=formatDate(new Date(), 'dd/MM/yyyy', 'en');
     this.incidencia.usuarioId =this.auth.getCurrenUserId();
-    this.incidencia.estadoincidencia="Sin Técnico Assignado"
+    this.incidencia.estadoincidencia="Sin Técnico Assignado";
+    this.incidencia.fotoIncidencia = this.foto;
   }
   addPhotoToGallery() {
-    this.photoService.addNewToGallery();
+     this.photoService.addNewToGallery().then(data => this.foto=data); 
   }
 }
+

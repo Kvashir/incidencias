@@ -13,9 +13,10 @@ import { AuthService } from './auth.service';
 export class IncidenciaService {
   incidencias:Array<any>=[];
   constructor(private fs: AngularFirestore,private auth:AuthService) { }
-
+  incidencia:Incidencia=new Incidencia();
 
   insertarIncidencia$(i:Incidencia){
+    i.id = this.makeid();
     this.fs.collection('incidencias').doc().set(i);
   }
   getIncidenciasByUserId(){
@@ -24,7 +25,34 @@ export class IncidenciaService {
     console.log(id)
     return this.fs.collection<Array<Incidencia>>('incidencias', ref => ref.where('usuarioId', '==', id))
     .valueChanges()
+  }
 
+  getIncidenciaById(id?:string){
+    
+    return this.fs.collection<Incidencia>('incidencias', ref => ref.where('id', '==', id))
+    .valueChanges().pipe(
+      tap(data =>{return data}),
+      first()); 
+  }
 
+  delete(id:string){ 
+    let jobskill_query = this.fs.collection('incidencias', ref => ref.where('id','==',id));
+
+    jobskill_query.get().subscribe(function(querySnapshot) {
+      querySnapshot.forEach(function(doc) {
+        doc.ref.delete();
+      });
+    });
+
+  }
+  
+  makeid() {
+    var text = "";
+    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  
+    for (var i = 0; i < 20; i++)
+      text += possible.charAt(Math.floor(Math.random() * possible.length));
+  
+    return text;
   }
 }

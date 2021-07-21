@@ -15,7 +15,7 @@ export class ClientService {
   getDataByUserID$(id:string):Observable<Client[]>{
     return this.fs.collection<Client>('clients', ref=>
     ref.where('id', '==', id)).valueChanges().pipe(
-      tap(data =>{console.log(data); return data}),
+      tap(data =>{ return data}),
       first());
   }
 
