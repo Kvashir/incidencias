@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Incidencia } from '../../model/incidencia';
 
 @Component({
@@ -8,21 +8,25 @@ import { Incidencia } from '../../model/incidencia';
 })
 
 export class ListaIncidenciasComponent implements OnInit {
-  incidencias:Array<Incidencia>=[
-    {titulo:"titulo",descripcion:"descripcion",fechaCreacion:"fecha",estadoincidencia:"estado",tecnicoId:"tecnico"},
-    {titulo:"titulo",descripcion:"descripcion",fechaCreacion:"fecha",estadoincidencia:"estado",tecnicoId:"tecnico"},
-    {titulo:"titulo",descripcion:"descripcion",fechaCreacion:"fecha",estadoincidencia:"estado",tecnicoId:"tecnico"},
-    {titulo:"titulo",descripcion:"descripcion",fechaCreacion:"fecha",estadoincidencia:"estado",tecnicoId:"tecnico"},
-    {titulo:"titulo",descripcion:"descripcion",fechaCreacion:"fecha",estadoincidencia:"estado",tecnicoId:"tecnico"},
-    {titulo:"titulo",descripcion:"descripcion",fechaCreacion:"fecha",estadoincidencia:"estado",tecnicoId:"tecnico"},
-    {titulo:"titulo",descripcion:"descripcion",fechaCreacion:"fecha",estadoincidencia:"estado",tecnicoId:"tecnico"},
-    {titulo:"titulo",descripcion:"descripcion",fechaCreacion:"fecha",estadoincidencia:"estado",tecnicoId:"tecnico"},
-    {titulo:"titulo",descripcion:"descripcion",fechaCreacion:"fecha",estadoincidencia:"estado",tecnicoId:"tecnico"},
-    {titulo:"titulo",descripcion:"descripcion",fechaCreacion:"fecha",estadoincidencia:"estado",tecnicoId:"tecnico"},
-    {titulo:"titulo",descripcion:"descripcion",fechaCreacion:"fecha",estadoincidencia:"estado",tecnicoId:"tecnico"},
-    {titulo:"titulo",descripcion:"descripcion",fechaCreacion:"fecha",estadoincidencia:"estado",tecnicoId:"tecnico"},
-    {titulo:"titulo",descripcion:"descripcion",fechaCreacion:"fecha",estadoincidencia:"estado",tecnicoId:"tecnico"}
-  ];
+
+  // incidencias:Array<Incidencia>=[
+  //   {titulo:"titulo",descripcion:"descripcion",fechaCreacion:"fecha",estadoincidencia:"estado",tecnicoId:"tecnico"},
+  //   {titulo:"titulo",descripcion:"descripcion",fechaCreacion:"fecha",estadoincidencia:"estado",tecnicoId:"tecnico"},
+  //   {titulo:"titulo",descripcion:"descripcion",fechaCreacion:"fecha",estadoincidencia:"estado",tecnicoId:"tecnico"},
+  //   {titulo:"titulo",descripcion:"descripcion",fechaCreacion:"fecha",estadoincidencia:"estado",tecnicoId:"tecnico"},
+  //   {titulo:"titulo",descripcion:"descripcion",fechaCreacion:"fecha",estadoincidencia:"estado",tecnicoId:"tecnico"},
+  //   {titulo:"titulo",descripcion:"descripcion",fechaCreacion:"fecha",estadoincidencia:"estado",tecnicoId:"tecnico"},
+  //   {titulo:"titulo",descripcion:"descripcion",fechaCreacion:"fecha",estadoincidencia:"estado",tecnicoId:"tecnico"},
+  //   {titulo:"titulo",descripcion:"descripcion",fechaCreacion:"fecha",estadoincidencia:"estado",tecnicoId:"tecnico"},
+  //   {titulo:"titulo",descripcion:"descripcion",fechaCreacion:"fecha",estadoincidencia:"estado",tecnicoId:"tecnico"},
+  //   {titulo:"titulo",descripcion:"descripcion",fechaCreacion:"fecha",estadoincidencia:"estado",tecnicoId:"tecnico"},
+  //   {titulo:"titulo",descripcion:"descripcion",fechaCreacion:"fecha",estadoincidencia:"estado",tecnicoId:"tecnico"},
+  //   {titulo:"titulo",descripcion:"descripcion",fechaCreacion:"fecha",estadoincidencia:"estado",tecnicoId:"tecnico"},
+  //   {titulo:"titulo",descripcion:"descripcion",fechaCreacion:"fecha",estadoincidencia:"estado",tecnicoId:"tecnico"}
+  // ];
+
+  @Input() incidencias!:Array<Incidencia>;
+  
   constructor() { }
 
   ngOnInit(): void {

@@ -39,5 +39,7 @@ export class AuthService {
   getToken():string{
     return sessionStorage.getItem('accesToken') as string;
   }
-
+  getCurrenUserId():string{
+    return sessionStorage.key(0) as string;
+  }
 }

@@ -1,0 +1,27 @@
+<div>
+  <ion-card [formGroup]="formGroup" (ngSubmit)="submit()">
+
+    <ion-item>
+      <ion-label>Título: </ion-label>
+      <ion-input placeholder="........." formControlName='titulo'></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Descripción: </ion-label>
+      <ion-input placeholder="........." formControlName='descripcion'></ion-input>
+    </ion-item>
+    <ion-item>
+
+
+      <ion-fab-button (click)="addPhotoToGallery()">
+        <ion-icon name="camera"></ion-icon>
+      </ion-fab-button>
+
+
+    </ion-item>
+    <ion-text >
+      <ion-button color="primary" (click)='submit()'><ion-icon name="thumbs-up-outline" ></ion-icon> Crear </ion-button>
+      <ion-button type="button" routerLink="/client" color="danger"><ion-icon name="alert-circle-outline"></ion-icon> Cancelar </ion-button>
+    </ion-text>
+
+  </ion-card>
+</div>

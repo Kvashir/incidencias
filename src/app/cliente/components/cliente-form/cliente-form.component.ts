@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Incidencia } from 'src/app/shared/model/incidencia';
 
 @Component({
   selector: 'app-cliente-form',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cliente-form.component.scss']
 })
 export class ClienteFormComponent implements OnInit {
+
+  @Input() incidencias!:Array<Incidencia>;
 
   constructor() { }
 
