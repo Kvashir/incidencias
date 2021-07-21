@@ -1,1 +1,10 @@
-<p>técnico</p>
+<nav>
+    <ion-button color="primary" (click)="nuevas()"><ion-icon name="add-circle-outline" ></ion-icon>Incidencias nuevas</ion-button>
+    <ion-button color="secondary"(click)="assignadas()"><ion-icon name="alert-circle-outline"></ion-icon>incidencias asignadas</ion-button>
+    <ion-button color="tertiary"(click)="perfil()"><ion-icon name="person-outline"></ion-icon></ion-button>
+    <h5>{{titulo}}</h5>
+</nav>
+<app-lista-incidencias [incidencias]='incidencias'
+                          >
+                    
+</app-lista-incidencias>

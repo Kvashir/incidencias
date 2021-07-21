@@ -11,7 +11,9 @@ import { Router } from '@angular/router';
 
 export class ListaIncidenciasComponent implements OnInit {
   id:string="";
+
   @Input() incidencias!:Array<Incidencia>;
+   
 
   @Output() incidenciaEvent = new EventEmitter<string>();
 
@@ -25,7 +27,6 @@ export class ListaIncidenciasComponent implements OnInit {
      console.log(this.id);
     this.incidenciaEvent.emit(this.id);
     
-    this.router.navigate(['/incidencia/',id]);
-    //this.iservice.getIncidenciaById(id).subscribe(data => console.log(data));
+    this.router.navigate(['/incidencia/',id]); 
   }
 }

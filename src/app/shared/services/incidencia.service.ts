@@ -12,7 +12,9 @@ import { AuthService } from './auth.service';
 })
 export class IncidenciaService {
   incidencias:Array<any>=[];
+
   constructor(private fs: AngularFirestore,private auth:AuthService) { }
+
   incidencia:Incidencia=new Incidencia();
 
   insertarIncidencia$(i:Incidencia){
@@ -21,8 +23,7 @@ export class IncidenciaService {
   }
   getIncidenciasByUserId(){
 
-    let id = this.auth.getCurrenUserId();
-    console.log(id)
+    let id = this.auth.getCurrenUserId(); 
     return this.fs.collection<Array<Incidencia>>('incidencias', ref => ref.where('usuarioId', '==', id))
     .valueChanges()
   }
@@ -33,6 +34,30 @@ export class IncidenciaService {
     .valueChanges().pipe(
       tap(data =>{return data}),
       first()); 
+  }
+  getIncidenciasSinAssignar(){
+    
+    return this.fs.collection<Incidencia>('incidencias', ref => ref.where('tecnicoId', '==', ""))
+    .valueChanges()
+
+  }
+
+  getIncidenciasAssignadas(){
+    
+    return this.fs.collection<Incidencia>('incidencias', ref => ref.where('tecnicoId', '==', this.auth.getCurrenUserId()))
+    .valueChanges()
+
+  }
+
+  assignarIncidencia(incidencia:Incidencia){
+    incidencia.estadoincidencia="Técnico assignado!"
+    let jobskill_query = this.fs.collection('incidencias', ref => ref.where('id','==',incidencia.id));
+
+    jobskill_query.get().subscribe(function(querySnapshot) {
+      querySnapshot.forEach(function(doc) {
+        doc.ref.update(incidencia);
+      });
+    }); 
   }
 
   delete(id:string){ 

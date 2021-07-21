@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output,EventEmitter } from '@angular/core';
+import { Incidencia } from 'src/app/shared/model/incidencia';
+
 
 @Component({
   selector: 'app-index-form',
@@ -6,10 +8,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./index-form.component.scss']
 })
 export class IndexFormComponent implements OnInit {
+  
+  @Input() incidencias!:Array<Incidencia>;
+  @Input() titulo!:string;
+
+  @Output() nuevasEvent = new EventEmitter();
+  @Output() assignadasEvent = new EventEmitter();
+  @Output() perfilEvent = new EventEmitter();
 
   constructor() { }
 
   ngOnInit(): void {
-  }
 
+  }
+  nuevas(){
+    this.nuevasEvent.emit();
+  }
+  assignadas(){
+    this.assignadasEvent.emit();
+  }
+  perfil(){
+    this.perfilEvent.emit();
+  }
 }

@@ -9,10 +9,12 @@ import { AppComponent } from './app.component';
 import { environment } from 'src/environments/environment';
 import { UserModule } from './user/user.module';
 import { IonicModule } from '@ionic/angular';
+import { SafePipePipe } from './safe-pipe.pipe';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SafePipePipe
   ],
   imports: [
     IonicModule,
