@@ -1,0 +1,7 @@
+{
+  "name": "incidencias",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

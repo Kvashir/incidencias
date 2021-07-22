@@ -1,0 +1,1 @@
+(self.webpackChunkincidencias=self.webpackChunkincidencias||[]).push([[1570],{1570:(e,n,c)=>{"use strict";c.r(n),c.d(n,{ClienteModule:()=>l});var i=c(1116),s=c(2979),t=c(1462),r=c(6498),u=c(4115),a=c(7368);let l=(()=>{class e{}return e.\u0275fac=function(n){return new(n||e)},e.\u0275mod=a.oAB({type:e}),e.\u0275inj=a.cJS({imports:[[i.ez,t.UX,s.C,r.Pc,u.z]]}),e})()}}]);
